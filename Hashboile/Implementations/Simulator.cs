@@ -10,9 +10,9 @@ namespace Hashboile.Implementations
 {
     class Simulator : ISimulator
     {
-        public long Simulate(Output output, MetricDirective metric)
+        public long Simulate(Input input, Output output, MetricDirective metric)
         {
-            return DateTime.Now.Ticks / 100000;
+            return 0;
         }
     }
 }

@@ -12,10 +12,7 @@ namespace Hashboile.Implementations
     {
         public Output Solve(Input input, MetricDirective metric)
         {
-            return new Output
-            {
-                Ingredients = input.Clients.SelectMany(x => x.LikedIngredients).ToList()
-            };
+            return null;
         }
     }
 }

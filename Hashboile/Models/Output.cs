@@ -6,6 +6,8 @@ namespace Hashboile.Models
 {
     class Output
     {
-        public List<string> Ingredients { get; set; }
+        public int NumberOfExecutedProjects { get; set; }
+        public List<OutputProject> Projects { get; set; }
+
     }
 }

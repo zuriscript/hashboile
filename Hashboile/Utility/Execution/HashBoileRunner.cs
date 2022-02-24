@@ -93,10 +93,10 @@ namespace Hashboile.Utility.Execution
             return solution;
         }
 
-        private long simulate(Output output, MetricDirective directive, string prefix = "", bool silent = false)
+        private long simulate(Input input, Output output, MetricDirective directive, string prefix = "", bool silent = false)
         {
             var sw = Stopwatch.StartNew();
-            var score = _simulator.Simulate(output, directive);
+            var score = _simulator.Simulate(input, output, directive);
             if(!silent)
             {
                 SimpleLogger.LogLine($"{prefix}Simulated score {score} with {directive} metric in {sw.StopAndReturnEllapsedSeconds()} seconds");
@@ -112,7 +112,7 @@ namespace Hashboile.Utility.Execution
             for(int i = 1; i<=n; i++)
             {
                 var output = solve(input, directive, $"[{i}/{n}] ", n > 8);
-                var score = simulate(output, directive, $"[{i}/{n}] ", n > 8);
+                var score = simulate(input, output, directive, $"[{i}/{n}] ", n > 8);
                 outputsWithScore.Add((output, score));
             }
 

@@ -7,6 +7,6 @@ namespace Hashboile.Contracts
 {
     interface ISimulator
     {
-        long Simulate(Output output, MetricDirective metric);
+        long Simulate(Input input, Output output, MetricDirective metric);
     }
 }

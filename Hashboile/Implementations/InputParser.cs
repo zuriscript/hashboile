@@ -13,24 +13,25 @@ namespace Hashboile.Implementations
     {
         public Input Parse(FileReader reader)
         {
-            var input = new Input();
-            input.PotentialClientsCount = reader.Next<int>();
-            for(int i = 0; i< input.PotentialClientsCount; i++)
-            {
-                var client = new Client();
+            return null;
+        //    var input = new Input();
+        //    input.PotentialClientsCount = reader.Next<int>();
+        //    for(int i = 0; i< input.PotentialClientsCount; i++)
+        //    {
+        //        var client = new Client();
 
-                var likeCount = reader.Next<int>();
-                for(int j = 0; j <likeCount; j++)
-                    client.LikedIngredients.Add(reader.Next<string>());
+        //        var likeCount = reader.Next<int>();
+        //        for(int j = 0; j <likeCount; j++)
+        //            client.LikedIngredients.Add(reader.Next<string>());
 
-                var dislikedCount = reader.Next<int>();
-                for (int j = 0; j < dislikedCount; j++)
-                    client.DisLikedIngredients.Add(reader.Next<string>());
+        //        var dislikedCount = reader.Next<int>();
+        //        for (int j = 0; j < dislikedCount; j++)
+        //            client.DisLikedIngredients.Add(reader.Next<string>());
 
-                input.Clients.Add(client);
-            }
+        //        input.Clients.Add(client);
+        //    }
 
-            return input;
+        //    return input;
         }
     }
 }
