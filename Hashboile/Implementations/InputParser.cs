@@ -13,25 +13,48 @@ namespace Hashboile.Implementations
     {
         public Input Parse(FileReader reader)
         {
-            return null;
-        //    var input = new Input();
-        //    input.PotentialClientsCount = reader.Next<int>();
-        //    for(int i = 0; i< input.PotentialClientsCount; i++)
-        //    {
-        //        var client = new Client();
+            var input = new Input();
+            input.NumberOfContributor = reader.Next<int>();
+            input.NumberOfProjects = reader.Next<int>();
 
-        //        var likeCount = reader.Next<int>();
-        //        for(int j = 0; j <likeCount; j++)
-        //            client.LikedIngredients.Add(reader.Next<string>());
+            for (int i = 0; i < input.NumberOfContributor; i++)
+            {
+                var contributor = new InputContributor();
+                contributor.Name = reader.Next<string>();
+                contributor.NumberOfSkills = reader.Next<int>();
 
-        //        var dislikedCount = reader.Next<int>();
-        //        for (int j = 0; j < dislikedCount; j++)
-        //            client.DisLikedIngredients.Add(reader.Next<string>());
+                for(int j = 0; j < contributor.NumberOfSkills; j++)
+                {
+                    var skill = new InputSkill();
+                    skill.Name = reader.Next<string>();
+                    skill.Level = reader.Next<int>();
+                    contributor.Skills.Add(skill);
+                }
 
-        //        input.Clients.Add(client);
-        //    }
+                input.Contributors.Add(contributor);
+            }
 
-        //    return input;
+            for(int i = 0; i < input.NumberOfProjects; i++)
+            {
+                var project = new InputProject();
+                project.Name = reader.Next<string>();
+                project.NumberOfDaysToComplete = reader.Next<int>();
+                project.ScoreAwardedForCompletion = reader.Next<int>();
+                project.CompleteBestBeforeDay = reader.Next<int>();
+                project.NumberOfRoles = reader.Next<int>();
+
+                for(int j = 0; j < project.NumberOfRoles; j++)
+                {
+                    var role = new InputRole();
+                    role.Name = reader.Next<string>();
+                    role.RequiredLevel = reader.Next<int>();
+                    project.Roles.Add(role);
+                }
+
+                input.Projects.Add(project);
+            }
+
+            return input;
         }
     }
 }

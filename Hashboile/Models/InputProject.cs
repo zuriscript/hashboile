@@ -13,7 +13,7 @@ namespace Hashboile.Models
         public int ScoreAwardedForCompletion { get; set; }
         public int CompleteBestBeforeDay { get; set; }
         public int NumberOfRoles { get; set; }
-        public List<InputRole> Roles { get; set; }
+        public HashSet<InputRole> Roles { get; set; } = new();
 
     }
 }

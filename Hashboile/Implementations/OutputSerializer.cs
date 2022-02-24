@@ -13,12 +13,16 @@ namespace Hashboile.Implementations
     {
         public void Serialize(FileWriter writer, Output output)
         {
-         
-            //writer.WriteInitialToken(output.Ingredients.Count);
-            //foreach(var ingredient in output.Ingredients)
-            //{
-            //    writer.WriteToken(ingredient);
-            //}
+            var projection = output.GetSolutionSet();
+            writer.WriteInitialToken(projection.Count);
+            writer.WriteLineBreak();
+            foreach(var project in projection)
+            {                
+                writer.WriteInitialToken(project.Name);
+                writer.WriteLineBreak();
+                writer.WriteInitialToken(string.Join(' ', project.NameOfContributors));
+                writer.WriteLineBreak();
+            }
         }
     }
 }

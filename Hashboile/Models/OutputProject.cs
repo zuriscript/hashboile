@@ -9,6 +9,6 @@ namespace Hashboile.Models
     class OutputProject
     {
         public string Name { get; set; }
-        public List<string> NameOfContributors { get; set; }
+        public List<string> NameOfContributors { get; set; } = new();
     }
 }

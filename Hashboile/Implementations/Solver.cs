@@ -12,7 +12,36 @@ namespace Hashboile.Implementations
     {
         public Output Solve(Input input, MetricDirective metric)
         {
-            return null;
+            var output = new Output();
+
+
+            foreach(var project in input.Projects)
+            {
+                var outputProject = new OutputProject
+                {
+                    Name = project.Name
+                };
+
+                foreach(var role in project.Roles)
+                {
+                    var contributor = input
+                        .GetSeniorsWithRole(role)
+                        .Where(x => !outputProject.NameOfContributors.Contains(x.Name))
+                        .FirstOrDefault();
+
+                    if(contributor != default)
+                    {
+                        outputProject.NameOfContributors.Add(contributor.Name);
+                    }   
+                }
+
+                if(outputProject.NameOfContributors.Count == project.Roles.Count)
+                {
+                    output.Projects.Add(outputProject);
+                }
+            }
+
+            return output;
         }
     }
 }

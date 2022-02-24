@@ -18,13 +18,13 @@ runner.RunWithSimulation(
     "c_collaboration.in.txt",
     "c_collaboration.out.txt",
     MetricDirective.General,
-    4);
+    1);
 
 runner.RunWithSimulation(
     "d_dense_schedule.in.txt",
     "d_dense_schedule.out.txt",
     MetricDirective.General,
-    20);
+    1);
 
 runner.Run(
     "e_exceptional_skills.in.txt",

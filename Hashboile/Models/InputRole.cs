@@ -9,6 +9,6 @@ namespace Hashboile.Models
     class InputRole
     {
         public string Name { get; set; }
-        public int RequiredLevel { get; set; }
+        public int RequiredLevel { get; set; } = new();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Hashboile.Models
@@ -8,8 +9,16 @@ namespace Hashboile.Models
     {
         public int NumberOfContributor { get; set; }
         public int NumberOfProjects { get; set; }
-        public List<InputContributor> Contributors { get; set; }
-        public List<InputProject> Projects { get; set; }
+        public HashSet<InputContributor> Contributors { get; set; } = new();
+        public HashSet<InputProject> Projects { get; set; } = new();
+
+
+        public List<InputContributor> GetSeniorsWithRole(InputRole role)
+        {
+            return Contributors
+                .Where(c => c.CanBeSeniorForRole(role))
+                .ToList();
+        }
     }
     
 }
